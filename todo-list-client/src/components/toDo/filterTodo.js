@@ -1,8 +1,17 @@
-import React from "react";
+import React,{useState} from "react";
 import { useDispatch,useSelector } from "react-redux";
 const FilterTask = () => {
     const todolist = useSelector(state => state.todolist);
+    const filterStatus = useSelector(state => state.filterStatus);
     const dispatch = useDispatch();
+    const updateFilter=(e)=>
+    {
+        debugger
+        const selectedOption = e.target.value;
+        dispatch({
+            type: 'UpdateFilterStatus', payload: selectedOption
+        })
+    }
 
     const handleFilterChange = (e) => {
         //step 1- get data from list from use selector
@@ -35,7 +44,7 @@ const FilterTask = () => {
         },
     }
     return (
-        <select style={customStyles} onChange={handleFilterChange}>
+        <select style={customStyles} value={filterStatus}  onChange={updateFilter}>
             <option value="all">All</option>
             <option value="incompleted">Active</option>
             <option value="completed">Completed</option>

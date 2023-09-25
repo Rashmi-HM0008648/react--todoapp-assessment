@@ -1,6 +1,7 @@
 import { createStore } from 'redux';
 
 const initialTodoState = {
+    filterStatus:'all',
     todolist: [
         {
             id: Math.floor(Math.random() * 1000),
@@ -40,7 +41,6 @@ const toDoListReducer = (state = initialTodoState, action) => {
                 name: editItem.name,
                 IsCompleted: editItem.IsCompleted,
             };
-            console.log(updatedTodoList, "updatedTodoList");
             return {
 
                 ...state, todolist: updatedTodoList
@@ -54,10 +54,11 @@ const toDoListReducer = (state = initialTodoState, action) => {
             ...state, todolist: updatedTodoList
         };
     }
-    if (action.type === "FilterTask") {
-        return { ...state, todolist: action.filterList };
+    if(action.type==="UpdateFilterStatus")
+    {
+        state.filterStatus=action.payload;
     }
-    return state;
+    return {...state};
 }
 const store = createStore(toDoListReducer);
 export default store;
