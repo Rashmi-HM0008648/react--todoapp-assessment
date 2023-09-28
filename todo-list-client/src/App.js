@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import AddTodoTask from './components/toDo/addToDo';
 import ToDoList from './components/toDo/toDoList';
 import Button from './components/UI/button';
 import './App.css';

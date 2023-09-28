@@ -1,4 +1,4 @@
-/* .input {
+.input {
     margin: 2rem auto;
     padding: 1rem;
     width: 90%;
@@ -23,4 +23,4 @@
   .input input:focus {
     outline: none;
     border-color: #4f005f;
-  } */
+  }
